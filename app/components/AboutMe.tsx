@@ -23,7 +23,7 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="min-h-screen w-full bg-[url('/bg-animation.gif')] bg-cover bg-center bg-fixed text-[var(--color-text-light)] flex items-center justify-center px-6 py-16"
+      className="min-h-screen w-full text-[var(--color-text-light)] flex items-center justify-center px-6 py-16"
     >
       <div className="max-w-7xl flex flex-col md:flex-row items-start justify-between gap-20 w-full">
 
