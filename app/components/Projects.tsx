@@ -25,7 +25,7 @@ export default function Projects() {
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.h2
-          className="text-[2.5vw] md:text-[2vw] font-bold text-center"
+          className="text-[3vw] md:text-[3vw] font-bold text-center"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
