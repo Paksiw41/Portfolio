@@ -29,7 +29,7 @@ export default function Home() {
         </div>
 
         {/* Right side: Animation */}
-        <div className="w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] mr-[5vw] flex justify-center">
+        <div className="w-[20vw] sm:w-[30vw] md:w-[40vw] lg:w-[30vw] mr-[5vw] flex justify-center">
           {/* Only show Lottie animation if it has been loaded */}
           {animationData && (
             <Lottie animationData={animationData} loop autoplay className="w-full h-auto" />
