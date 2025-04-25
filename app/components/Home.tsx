@@ -1,7 +1,10 @@
 "use client";
 
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-import Lottie from 'lottie-react';
+
+// Dynamically import Lottie with SSR disabled
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Home() {
   const [animationData, setAnimationData] = useState<any>(null);
@@ -22,11 +25,11 @@ export default function Home() {
             <span className="text-[6vw] text-[#18c79b]">N</span><span className="text-[6vw] text-[#18c79b]">i</span><span className="text-[6vw] text-[#18c79b]">ñ</span><span className="text-[6vw] text-[#18c79b]">o</span>
             <span>"</span><span>!</span>
           </h1>
-          <p className="text-[1.5vw]">Aspiring | Game Developer, Web Developer, UI/UX Designer</p>
+          <p className="text-[1.5vw] text-lg mt-4">Aspiring | Game Developer, Web Developer, UI/UX Designer</p>
         </div>
 
         {/* Right side: Animation */}
-        <div className="w-[200px] sm:w-[300px] md:w-[400px] lg:w-[600px] flex justify-center">
+        <div className="w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] flex justify-center">
           {/* Only show Lottie animation if it has been loaded */}
           {animationData && (
             <Lottie animationData={animationData} loop autoplay className="w-full h-auto" />
