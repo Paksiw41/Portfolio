@@ -12,6 +12,7 @@
     "@lottiefiles/lottie-player": "^2.0.12",
     "@types/react-countup": "^4.3.1",
     "framer-motion": "^12.9.1",
+    "lottie-react": "^2.4.1",
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
