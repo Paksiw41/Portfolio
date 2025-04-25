@@ -72,7 +72,6 @@ export default function AboutMe() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 1 }}
                   >
-                    <CountUp end={skill.level} duration={2} suffix="%" className="text-[1vw] sm:text-[1.2vw]" />
                   </motion.div>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-3 mt-1 overflow-hidden">
