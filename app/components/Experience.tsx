@@ -28,7 +28,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen w-full bg-pimary text-[var(--color-text-light)] flex items-center justify-center px-4 py-16"
+      className="min-h-screen w-full bg-primary text-[var(--color-text-light)] flex items-center justify-center px-4 py-16"
     >
       <motion.div
         className="max-w-5xl w-full space-y-12"
