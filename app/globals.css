@@ -8,6 +8,9 @@
   --color-text-light: #F8FAFC;
   --color-text-dark: #0F172A;
   --color-border: #18c79b;
+  
+  /* Using --font-roboto variable for font-sans */
+  --font-sans: var(--font-roboto);
 
   --background: var(--color-primary);
   --foreground: var(--color-text-light);
@@ -20,14 +23,27 @@
   }
 }
 
+.font-roboto {
+  font-family: var(--font-roboto);
+}
+
+.font-geist-sans {
+  font-family: var(--font-geist-sans);
+}
+
+.font-geist-mono {
+  font-family: var(--font-geist-mono);
+}
+
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif; /* Use Roboto via --font-sans */
   transition: background 0.3s, color 0.3s;
 }
 
-/* Utility classes (if you need custom ones) */
+/* Utility classes */
 .bg-primary {
   background-color: var(--color-primary);
 }
@@ -50,8 +66,6 @@ body {
   }
 }
 
-
-
 /* Typing effect */
 @keyframes typing {
   0% {
@@ -68,7 +82,7 @@ body {
   }
 }
 
-/* Apply typing animation to text */
+/* Apply typing animation */
 .animate-typing {
   display: inline-block;
   overflow: hidden;
@@ -77,33 +91,11 @@ body {
   animation: typing 2s steps(30) 1s 1 normal both, blinkCaret 0.75s step-end infinite;
 }
 
-/* Individual span */
+/* Individual span fade-in */
 .animate-typing span {
   display: inline-block;
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
-}
-
-.animate-typing span:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.animate-typing span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.animate-typing span:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.animate-typing span:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.animate-typing span:nth-child(5) {
-  animation-delay: 0.5s;
-}
-.animate-typing span:nth-child(6) {
-  animation-delay: 0.6s;
-}
-.animate-typing span:nth-child(7) {
-  animation-delay: 0.7s;
 }
 
 @keyframes fadeIn {
