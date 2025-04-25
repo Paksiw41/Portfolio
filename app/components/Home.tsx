@@ -25,7 +25,7 @@ export default function Home() {
             <span className="text-[6vw] text-[#18c79b]">N</span><span className="text-[6vw] text-[#18c79b]">i</span><span className="text-[6vw] text-[#18c79b]">ñ</span><span className="text-[6vw] text-[#18c79b]">o</span>
             <span>"</span><span>!</span>
           </h1>
-          <p className="text-[1.5vw] text-lg mt-4">Aspiring | Game Developer, Web Developer, UI/UX Designer</p>
+          <p className="text-[1.5vw]">Aspiring | Game Developer, Web Developer, UI/UX Designer</p>
         </div>
 
         {/* Right side: Animation */}
