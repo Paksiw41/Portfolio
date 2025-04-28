@@ -31,7 +31,8 @@ export default function Experience() {
       className="min-h-screen w-full bg-primary text-[var(--color-text-light)] flex items-center justify-center px-4 py-16"
     >
       <motion.div
-        className="max-w-5xl w-full space-y-12"
+        className="space-y-[3vw]"
+        style={{ maxWidth: '70vw', width: '100%' }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -42,7 +43,8 @@ export default function Experience() {
         {experienceData.map((exp, i) => (
           <motion.div
             key={i}
-            className="bg-gray-800 p-6 rounded-xl shadow-md"
+            className="bg-gray-800 rounded-[clamp(0.5rem,2vw,1.5rem)] shadow-md"
+            style={{ padding: 'clamp(1rem,2vw,3rem)' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: i * 0.2 }}

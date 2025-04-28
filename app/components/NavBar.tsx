@@ -22,6 +22,12 @@ export default function NavBar() {
             <img src="folder.svg" className="transition-transform group-hover:scale-110" style={{ width: '1.1vw', height: '1.1vw' }} />
             <Link href="#projects">Projects</Link>
           </li>
+          <li className="text-[1.1vw] hover:text-[#18c79b] flex gap-2 items-center cursor-pointer group">
+            <img src="file.svg" className="transition-transform group-hover:scale-110" style={{ width: '1.1vw', height: '1.1vw' }} />
+            <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
+              Resume
+            </a>
+          </li>
         </ul>
       </div>
       <div className="flex gap-5">

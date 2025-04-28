@@ -36,13 +36,13 @@ export default function AboutMe() {
         >
           <img src="IMG_2964.jpg" alt="Profile Image" className="w-[15vw] sm:w-[10vw] rounded-[3.5vw] mt-3" />
           <h2 className="text-[3vw] sm:text-[2.5vw] font-semibold">About Me</h2>
-          <p className="text-[1vw] sm:text-[1.2vw] mt-4 text-lg">
+          <p className="text-[1vw] sm:text-[1.2vw] mt-4">
             I'm a passionate 3rd Year College Computer Science student from{" "}
             <span className="text-[#18c79b] font-bold">Ateneo De Davao University</span> in the{" "}
             <span className="text-[#18c79b] font-bold">Philippines</span>, with a keen interest in software development, problem-solving, and building meaningful projects.
           </p>
-          <p className="text-[1vw] sm:text-[1.2vw] mt-10 text-lg">Technologies I work with:</p>
-          <ul className="text-[1vw] sm:text-[1.2vw] mt-4 list-disc pl-6 text-lg">
+          <p className="text-[1vw] sm:text-[1.2vw] mt-10">Technologies I work with:</p>
+          <ul className="text-[1vw] sm:text-[1.2vw] mt-4 list-disc pl-6">
             <li><span className="text-[#18c79b]">JavaScript</span> (React, Next.js, Node.js)</li>
             <li><span className="text-[#18c79b]">Python</span> (Django)</li>
             <li><span className="text-[#18c79b]">TypeScript</span></li>
