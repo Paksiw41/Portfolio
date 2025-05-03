@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-      <footer className="bg-[var(--color-primary)] text-[var(--color-text-light)] py-8">
+      <footer className="bg-gray-800 text-[var(--color-text-light)] py-8">
         <div className="max-w-7xl mx-auto text-center space-y-4">
           <p className="text-[1vw]">&copy; 2024 Niño U. All rights reserved.</p>
           <p className="text-[1vw]">Contact Me @</p>

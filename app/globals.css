@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
 
 :root {
   --color-primary: #0F172A;
@@ -8,9 +10,13 @@
   --color-text-light: #F8FAFC;
   --color-text-dark: #0F172A;
   --color-border: #18c79b;
+
   
   /* Using --font-roboto variable for font-sans */
-  --font-sans: var(--font-roboto);
+  --font-poppins: 'Poppins', sans-serif;
+  --font-sans: var(--font-poppins);
+
+  
 
   --background: var(--color-primary);
   --foreground: var(--color-text-light);
@@ -37,11 +43,15 @@
 
 
 body {
-  background: var(--background);
+  background: 
+    linear-gradient(135deg, #1a202c, #0f4c5c),
+    url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+  background-blend-mode: overlay;
   color: var(--foreground);
-  font-family: var(--font-sans), sans-serif; /* Use Roboto via --font-sans */
+  font-family: var(--font-sans), sans-serif;
   transition: background 0.3s, color 0.3s;
 }
+
 
 /* Utility classes */
 .bg-primary {
@@ -49,6 +59,12 @@ body {
 }
 .bg-secondary {
   background-color: var(--color-secondary);
+}
+.bg-gradient-custom {
+  background: 
+    linear-gradient(135deg, #1a202c, #0f4c5c),
+    url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+  background-blend-mode: overlay;
 }
 .text-accent {
   color: var(--color-accent);
@@ -72,7 +88,7 @@ body {
     width: 0;
   }
   100% {
-    width: 30.5vw;
+    width: 32vw;
   }
 }
 

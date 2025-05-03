@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NavBar() {
   return (
-    <nav className="w-full fixed top-0 left-0 z-50 bg-secondary bg-opacity-90 backdrop-blur-md flex justify-between items-center px-[17vw] py-4">
+    <nav className="w-full fixed top-0 left-0 z-50 bg-opacity-90 backdrop-blur-md flex justify-between items-center px-[17vw] py-4">
       <div className="flex gap-25">
         <div className="text-[1.1vw] font-bold text-[var(--color-text-light)] hover:text-[#18c79b]">Niño</div>
         <ul className="flex gap-4 text-lg text-[var(--color-text-light)]">

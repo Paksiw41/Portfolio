@@ -17,10 +17,10 @@ export default function Home() {
   }, []);
 
   return (
-    <section id="home" className="relative flex min-h-screen bg-secondary text-[var(--color-text-light)] items-center py-12">
+    <section id="home" className="font-[var(--font-poppins)] relative flex min-h-screen text-[var(--color-text-light)] items-center py-12">
       <header className="flex w-full justify-between items-center text-center pl-[17vw]">
         <div className="text-left flex flex-col">
-          <h1 className="text-[5vw] font-bold animate-typing font-Courier tracking-tighter">
+          <h1 className="font-[var(--font-poppins)] text-[5vw] font-bold animate-typing tracking-tighter">
             <span>H</span><span>i</span><span>,</span><span> </span><span>I</span><span>'</span><span>m</span><span> </span><span>"</span>
             <span className=" text-[#18c79b]">N</span><span className=" text-[#18c79b]">i</span><span className=" text-[#18c79b]">ñ</span><span className=" text-[#18c79b]">o</span>
             <span>"</span><span>!</span>

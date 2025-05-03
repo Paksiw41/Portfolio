@@ -34,7 +34,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-secondary text-[var(--color-text-light)] flex flex-col justify-center py-16"
+      className="min-h-screen text-[var(--color-text-light)] flex flex-col justify-center py-16"
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.h2
@@ -50,7 +50,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="group bg-[var(--color-primary)] p-8 rounded-xl shadow-lg border border-[var(--color-border)] relative overflow-hidden transform-gpu transition-transform duration-300 hover:scale-105 will-change-transform"
+              className="group bg-gray-800 p-8 rounded-xl shadow-lg border border-[var(--color-border)] relative overflow-hidden transform-gpu transition-transform duration-300 hover:scale-105 will-change-transform"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
