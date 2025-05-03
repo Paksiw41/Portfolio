@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function GuessNumberGameModal({ onClose }: { onClose: () => void }) {
   const [target, setTarget] = useState(generateNumber());
@@ -10,6 +10,8 @@ export default function GuessNumberGameModal({ onClose }: { onClose: () => void 
   const [attempts, setAttempts] = useState(0);
   const [highScore, setHighScore] = useState<number | null>(null);
   const [gameOver, setGameOver] = useState(false);
+  const [previousGuesses, setPreviousGuesses] = useState<number[]>([]);
+  const [status, setStatus] = useState<'default' | 'correct' | 'wrong'>('default');
   const MAX_ATTEMPTS = 10;
 
   function generateNumber() {
@@ -18,29 +20,43 @@ export default function GuessNumberGameModal({ onClose }: { onClose: () => void 
 
   const handleGuess = () => {
     const num = parseInt(guess);
+  
     if (isNaN(num) || num < 1 || num > 100) {
-      setMessage('Please enter a valid number between 1 and 100.');
+      setMessage('🚫 Please enter a valid number between 1 and 100.');
+      setStatus('wrong');
+      setTimeout(() => setStatus('default'), 1000);
       return;
     }
-
+  
+    if (previousGuesses.includes(num)) {
+      setMessage(`⚠️ You already guessed ${num}. Try a different number.`);
+      setStatus('wrong');
+      setTimeout(() => setStatus('default'), 1000);
+      return;
+    }
+  
     const newAttempts = attempts + 1;
     setAttempts(newAttempts);
-
+    setPreviousGuesses([...previousGuesses, num]);
+  
     if (num === target) {
       setMessage(`🎉 Correct! You guessed it in ${newAttempts} tries.`);
+      setStatus('correct');
       if (!highScore || newAttempts < highScore) {
         setHighScore(newAttempts);
       }
       setGameOver(true);
     } else if (newAttempts >= MAX_ATTEMPTS) {
       setMessage(`❌ You've reached ${MAX_ATTEMPTS} attempts! The number was ${target}.`);
+      setStatus('wrong');
       setGameOver(true);
-    } else if (num < target) {
-      setMessage('Too low! Try a higher number.');
     } else {
-      setMessage('Too high! Try a lower number.');
+      setMessage(num < target ? '📉 Too low! Try a higher number.' : '📈 Too high! Try a lower number.');
+      setStatus('wrong');
+      setTimeout(() => setStatus('default'), 1000);
     }
   };
+  
 
   const restartGame = () => {
     setTarget(generateNumber());
@@ -48,7 +64,16 @@ export default function GuessNumberGameModal({ onClose }: { onClose: () => void 
     setMessage('Guess a number between 1 and 100');
     setAttempts(0);
     setGameOver(false);
+    setPreviousGuesses([]);
+    setStatus('default');
   };
+
+  // Conditional border color based on status
+  const inputBorderClass = {
+    default: 'border-[var(--color-border)]',
+    correct: 'border-green-500 ring-green-500',
+    wrong: 'border-red-500 ring-red-500',
+  }[status];
 
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
@@ -64,8 +89,12 @@ export default function GuessNumberGameModal({ onClose }: { onClose: () => void 
         >
           &times;
         </button>
-        <h1 className="text-[2.5vw] font-bold mb-[1vw] text-center text-[var(--color-text)]">Guess the Number</h1>
-        <p className="mb-[1vw] text-center text-[1.2vw] text-[var(--color-text-muted)]">{message}</p>
+        <h1 className="text-[2.5vw] font-bold mb-[1vw] text-center text-[var(--color-text)]">
+          Guess the Number
+        </h1>
+        <p className="mb-[1vw] text-center text-[1.2vw] text-[var(--color-text-muted)]">
+          {message}
+        </p>
         <p className="mb-[1vw] text-center text-[1vw] text-[var(--color-text-muted)]">
           Attempts left: {MAX_ATTEMPTS - attempts}
         </p>
@@ -75,7 +104,7 @@ export default function GuessNumberGameModal({ onClose }: { onClose: () => void 
             value={guess}
             onChange={(e) => setGuess(e.target.value)}
             disabled={gameOver}
-            className="w-full text-[1vw] px-[1.5vw] py-[1vw] border border-[var(--color-border)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+            className={`w-full text-[1vw] px-[1.5vw] py-[1vw] border rounded-md focus:outline-none focus:ring-2 ${inputBorderClass}`}
             placeholder="Enter your guess"
           />
           <button
@@ -92,7 +121,9 @@ export default function GuessNumberGameModal({ onClose }: { onClose: () => void 
             Restart
           </button>
           {highScore !== null && (
-            <p className="text-[0.9vw] text-[var(--color-text-muted)]">Best Score: {highScore} attempts</p>
+            <p className="text-[0.9vw] text-[var(--color-text-muted)]">
+              Best Score: {highScore} attempts
+            </p>
           )}
         </div>
       </motion.div>
