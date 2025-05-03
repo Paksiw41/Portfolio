@@ -24,7 +24,7 @@ export default function NavBar() {
           </li>
           <li className="text-[1.1vw] hover:text-[#18c79b] flex gap-2 items-center cursor-pointer group">
             <img src="file.svg" className="transition-transform group-hover:scale-110" style={{ width: '1.1vw', height: '1.1vw' }} />
-            <a href="/resume.pdf" download target="_blank" rel="noopener noreferrer">
+            <a href="/Resume.pdf" download target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </li>
