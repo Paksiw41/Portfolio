@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 
 export default function Projects() {
   const [showGame, setShowGame] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const projects = [
     {
@@ -31,14 +33,26 @@ export default function Projects() {
     },
   ];
 
+  const handleMouseEnter = (index: number) => {
+    const timeout = setTimeout(() => {
+      setHoveredIndex(index);
+    }, 500); // 500ms delay before activating hover
+    setHoverTimeout(timeout);
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    setHoveredIndex(null);
+  };
+
   return (
     <section
       id="projects"
-      className="min-h-screen text-[var(--color-text-light)] flex flex-col justify-center py-16"
+      className="min-h-screen text-[var(--color-text-light)] flex flex-col justify-center py-16 relative"
     >
       <div className="max-w-7xl mx-auto px-4">
         <motion.h2
-          className="text-[3vw] md:text-[3vw] font-bold text-center"
+          className="text-[3vw] md:text-[3vw] font-bold text-center mb-12"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -46,11 +60,26 @@ export default function Projects() {
           My Projects
         </motion.h2>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-2">
+        {/* Blur overlay */}
+        {hoveredIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0 rounded-xl"
+          />
+        )}
+
+        <div className="relative grid gap-8 sm:grid-cols-1 md:grid-cols-2 z-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="group bg-gray-800 p-8 rounded-xl shadow-lg border border-[var(--color-border)] relative overflow-hidden transform-gpu transition-transform duration-300 hover:scale-105 will-change-transform"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              className={`group bg-gray-800 p-8 rounded-xl border border-[var(--color-border)] relative overflow-hidden transform-gpu transition-all duration-300 will-change-transform
+                ${hoveredIndex === index ? 'scale-[1.35] z-20 shadow-2xl' : hoveredIndex !== null ? 'blur-sm scale-95' : 'shadow-md'}
+              `}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
